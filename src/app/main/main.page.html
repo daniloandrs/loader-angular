@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Main</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input 
+        label="Tiempo entre slide (en ms)"
+         placeholder="Tiempo entre slide (en ms)"
+         labelPlacement="stacked"
+         [(ngModel)]="timeSlide"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input 
+          label="Tiempo de la petición (en ms)"
+          labelPlacement="stacked"
+          placeholder="Tiempo de la petición (en ms)"
+          [(ngModel)]="timeRequest"  
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+  <app-btn-slider
+    (click)="fetchApi()"
+    [isOpen]="loader"
+    [slides]="slides"
+    (callback)="onFinishSlider()"
+  ></app-btn-slider>
+</ion-content>

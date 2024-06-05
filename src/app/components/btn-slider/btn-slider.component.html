@@ -1,0 +1,41 @@
+
+<ion-button expand="block">Abrir slider</ion-button>
+
+<ion-modal [isOpen]="isOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Slider</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <swiper-container 
+          pagination="true" 
+          effect="coverflow" 
+          grab-cursor="true" 
+          centered-slides="true"
+          [autoplay]="true"
+          slides-per-view="1" 
+          coverflow-effect-rotate="50" 
+          coverflow-effect-stretch="0" 
+          coverflow-effect-depth="100"
+          coverflow-effect-modifier="1" 
+          coverflow-effect-slide-shadows="true"
+        >
+          <ng-container *ngFor="let item of slides">
+            <swiper-slide  lazy="true">
+              <ion-row class="relative">
+                <img [src]="item.image" class="w-full h-[95vh]" loading="lazy">
+                <ion-content>
+                  {{item.text }}
+                </ion-content>
+              </ion-row>
+            </swiper-slide>
+          </ng-container>
+        </swiper-container>
+    </ion-content>
+  </ng-template>
+</ion-modal>
